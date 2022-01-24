@@ -22,8 +22,9 @@ export default function ContactPage() {
       birthDate: data.birthDate,
       agreeToBeContactedViaEmail: data.agreeToBeContactedViaEmail,
     }).then((res) => {
-      // console.log(res.data)
+      console.log(res.data)
       setData([res.data, ...data])
+      alert("SUCCESS!! :-)\n\n" + JSON.stringify(data));
     })
     .catch(err => {
         console.log(err);
@@ -43,7 +44,15 @@ export default function ContactPage() {
     console.log(newdata);
   }
 
-//   const handle = event => setData(event.target.value);
+// Reset Input Field handler
+const resetInputField = () => {
+    setData({
+        name: '',
+        email: '',
+        birthDate: '',
+        agreeToBeContactedViaEmail: false
+      });
+  };
   
 
   return (
@@ -93,7 +102,7 @@ export default function ContactPage() {
                 </>
 
                 <div className="row pt-5">
-                  <input className='primary-button mt-3' type="reset" defaultValue="Reset" />
+                  <button className='primary-button mt-3' onClick={resetInputField}>Clear</button>
                   <button className='primary-button mt-3'>submit</button>
                 </div>
               </form>
