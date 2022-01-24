@@ -23,7 +23,17 @@ export default function ContactPage() {
       agreeToBeContactedViaEmail: data.agreeToBeContactedViaEmail,
     }).then((res) => {
       // console.log(res.data)
-    });
+      setData([res.data, ...data])
+    })
+    .catch(err => {
+        console.log(err);
+      })
+      setData({
+        name: '',
+        email: '',
+        birthDate: '',
+        agreeToBeContactedViaEmail: false
+      });
   }
 
   function handle(e) {
