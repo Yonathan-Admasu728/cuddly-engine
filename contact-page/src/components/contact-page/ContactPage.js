@@ -65,12 +65,12 @@ const resetInputField = () => {
           <div className="col-md-6">
             <div className="contact-form m-2 p-5 n-box2">
               <h3 className="font-bold">Contact US</h3>
-              <form onSubmit={(e) => submit(e)}>
+              <form onSubmit={submit}>
                 <FormInput
                   type="text"
                   name="name"
                   value={data.name}
-                  onChange={(e) => handle(e)}
+                  onChange={handle}
                   label="Name"
                   required
                 />
@@ -79,7 +79,7 @@ const resetInputField = () => {
                   type="email"
                   name="email"
                   value={data.email}
-                  onChange={(e) => handle(e)}
+                  onChange={handle}
                   label="Email"
                   required
                 />
@@ -87,7 +87,7 @@ const resetInputField = () => {
                   type="date"
                   name="birthDate"
                   value={data.birthDate}
-                  onChange={(e) => handle(e)}
+                  onChange={handle}
                   label="birth date"
                 />
                 <>
@@ -95,14 +95,14 @@ const resetInputField = () => {
                     checked={data.agreeToBeContactedViaEmail}
                     type="checkbox"
                     name="agreeToBeContactedViaEmail"
-                    onChange={(e) => handle(e)}
+                    onChange={handle}
                   />
                   &nbsp;&nbsp;
                   <label>I agree to be contacted via email.</label>
                 </>
 
                 <div className="row pt-5">
-                  <button className='primary-button mt-3' onClick={resetInputField}>Clear</button>
+                  <button className='primary-button mt-3' type="button" onClick={resetInputField}>Clear</button>
                   <button className='primary-button mt-3'>submit</button>
                 </div>
               </form>
